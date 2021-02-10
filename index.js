@@ -1,14 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes')
+const serverless = require("serverless-http");
+const dotenv =require('dotenv').config()
+// console.log(dotenv.parsed)
 
-// const path= require('path');
+const path= require('path');
 const app= express();
 
-//conect to db
-const dbURI = 'mongodb+srv://lp80lp:internet0@lp.gnpxe.mongodb.net/Laur?retryWrites=true&w=majority';
+
+const PORT = process.env.PORT || 3000;
+const dbURI = process.env.MONGODB_URI
+
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(result => app.listen(5000))
+  .then(result => app.listen(PORT))
   .catch(err => console.log(err));
 
   //enable EJS engin
