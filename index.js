@@ -8,10 +8,16 @@ const dotenv =require('dotenv').config()
 const path= require('path');
 const app= express();
 
+<<<<<<< HEAD
 
 const PORT = process.env.PORT || 3000;
 const dbURI = process.env.MONGODB_URI
 
+=======
+const PORT = process.env.PORT || 3000;
+const dbURI = process.env.MONGODB_URI
+//conect to db
+>>>>>>> aa2fe215eb9e2db41d420784ec270c946f9436b8
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(result => app.listen(PORT))
   .catch(err => console.log(err));
