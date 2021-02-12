@@ -4,6 +4,7 @@ const blogRoutes = require('./routes/blogRoutes')
 const serverless = require("serverless-http");
 const dotenv =require('dotenv').config()
 // console.log(dotenv.parsed)
+console.log(process.env.NODE_ENV)
 
 const path= require('path');
 const app= express();
