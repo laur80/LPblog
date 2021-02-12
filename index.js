@@ -2,9 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes')
 const serverless = require("serverless-http");
+const compression = require('compression')
 const dotenv =require('dotenv').config()
 // console.log(dotenv.parsed)
-console.log(process.env.NODE_ENV)
+// console.log(process.env.NODE_ENV)
 
 const path= require('path');
 const app= express();
@@ -18,6 +19,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(result => app.listen(PORT))
   .catch(err => console.log(err));
 
+  app.use(compression())
   //enable EJS engin
 app.set('view engine', 'ejs');
 // face accesibil/public folderul in cauza, poate contine: jpg,html,css...
